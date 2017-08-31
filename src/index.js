@@ -1,7 +1,7 @@
 import jQuery from 'jquery';
-// import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'normalize.css';
 import './index.styl';
-import react from 'react';
+// import react from 'react';
 
 console.log('hello world');

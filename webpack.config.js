@@ -22,13 +22,7 @@ const common = merge([
 		plugins: [
 			new htmlWebpackPlugin( {
 				template: PATHS.src + '/index.pug'
-			}),
-			new webpack.ProvidePlugin({
-        $: 'jquery',
-        jQuery: 'jquery',
-        'window.jQuery': 'jquery',
-        Popper: ['popper.js', 'default']
-      })
+			})
 		]
 	},
 	pug(),
