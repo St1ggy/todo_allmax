@@ -4,6 +4,8 @@ const merge = require('webpack-merge');
 const devServer = require('./webpack/devserver');
 const pug = require('./webpack/pug');
 const stylus = require('./webpack/stylus');
+const css = require('./webpack/css')
+const webpack = require('webpack');
 
 const PATHS = {
 	src: path.join(__dirname, 'src'),
@@ -20,11 +22,18 @@ const common = merge([
 		plugins: [
 			new htmlWebpackPlugin( {
 				template: PATHS.src + '/index.pug'
-			})
+			}),
+			new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+        Popper: ['popper.js', 'default']
+      })
 		]
 	},
 	pug(),
-	stylus()
+	stylus(),
+	css()
 ]);
 
 
