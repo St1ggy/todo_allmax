@@ -2,9 +2,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css';
 import './index.styl';
+
 /* Include Libs */
-// import react from 'react';
+import React from 'react';
+import { render } from 'react-dom';
+import Test from './test/test.jsx';
+
 /* App */
-console.log('hello world');
-console.log($);
-console.log(jQuery);
+render(
+	<Test/>,
+	document.getElementById('app')
+)

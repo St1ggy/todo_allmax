@@ -4,12 +4,12 @@ const htmlWebpackPlugin = require('html-webpack-plugin');
 const merge				= require('webpack-merge');
 const webpack			= require('webpack');
 /* My Modules */
-const css					= require('./webpack/css');
 const devServer		= require('./webpack/devserver');
 const extractCSS	= require('./webpack/css.extract');
 const pug					= require('./webpack/pug');
-const stylus			= require('./webpack/stylus');
 const uglify			= require('./webpack/js.uglify');
+const minify			= require('./webpack/css.minify');
+const react				= require('./webpack/react');
 
 const PATHS = {
 	src: path.join(__dirname, 'src'),
@@ -34,7 +34,9 @@ const common = merge([
 
 		]
 	},
-	pug()
+	react(),
+	pug(),
+	extractCSS(),
 ]);
 
 
@@ -42,13 +44,11 @@ module.exports = function (env) {
 	return env == 'production' ?
 		merge([
 			common,
-			extractCSS(),
 			uglify(),
+			minify()
 		]) :
 		merge([
 			common,
 			devServer(),
-			stylus(),
-			css(),
 		]);
 }

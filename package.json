@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --env development",
+    "start": "webpack-dev-server --content-base ./app --inline --hot",
     "build": "webpack --env production",
     "serv": "static app"
   },
@@ -24,9 +24,15 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "bootstrap": "4.0.0-beta",
+    "cssnano": "^3.10.0",
     "jquery": "^3.2.1",
     "normalize.css": "^7.0.0",
+    "optimize-css-assets-webpack-plugin": "^3.1.1",
     "popper": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"

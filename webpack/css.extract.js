@@ -10,21 +10,21 @@ module.exports = function(paths) {
 					use: extractTextPlugin.extract({
 						publicPath: '../',
 						fallback: 'style-loader',
-						use: ['css-loader', 'stylus-loader']
-					})
+						use: ['css-loader', 'stylus-loader'],
+					}),
 				},
 				{
 					test: /\.css$/,
 					include: paths,
 					use: extractTextPlugin.extract({
 						fallback: 'style-loader',
-						use: 'css-loader'
-					})
+						use: 'css-loader',
+					}),
 				}
 			]
 		},
 		plugins: [
-			new extractTextPlugin('./css/[name].css')
+			new extractTextPlugin('./css/[name].css'),
 		]
 	};
 };
