@@ -31,6 +31,9 @@ const common = merge([
 				$: 'jquery',
 				jQuery: 'jquery'
 			}),
+			new webpack.ProvidePlugin({
+					"React": "react",
+			}),
 
 		]
 	},

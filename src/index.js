@@ -3,13 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'normalize.css';
 import './index.styl';
 
-/* Include Libs */
+/* Include Core */
 import React from 'react';
 import { render } from 'react-dom';
-import Test from './test/test.jsx';
+/* Include Components */
+import ToDoApp from './ToDoApp/ToDoApp.jsx';
 
 /* App */
 render(
-	<Test/>,
+	<div className="container">
+		<ToDoApp />
+	</div>,
 	document.getElementById('app')
-)
+);
