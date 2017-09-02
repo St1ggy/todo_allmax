@@ -6,13 +6,22 @@ import './index.styl';
 /* Include Core */
 import React from 'react';
 import { render } from 'react-dom';
+import firebase from 'firebase';
+import { connect, Provider } from 'react-firebase';
+
 /* Include Components */
-import ToDoApp from './ToDoApp/ToDoApp.jsx';
+import App from './App.jsx';
 
 /* App */
+const firebaseApp = firebase.initializeApp({
+	databaseURL: 'https://todolist-55f92.firebaseio.com/'
+});
+
 render(
-	<div className="container">
-		<ToDoApp />
-	</div>,
+	<Provider firebaseApp={firebaseApp}>
+		<div className="container">
+			<App />
+		</div>
+	</Provider>,
 	document.getElementById('app')
 );

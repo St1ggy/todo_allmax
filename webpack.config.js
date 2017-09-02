@@ -10,6 +10,7 @@ const pug					= require('./webpack/pug');
 const uglify			= require('./webpack/js.uglify');
 const minify			= require('./webpack/css.minify');
 const react				= require('./webpack/react');
+// const fonts				= require('./webpack/icon.fonts');
 
 const PATHS = {
 	src: path.join(__dirname, 'src'),
@@ -40,6 +41,7 @@ const common = merge([
 	react(),
 	pug(),
 	extractCSS(),
+	// fonts(),
 ]);
 
 

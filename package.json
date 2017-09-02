@@ -30,11 +30,18 @@
     "babel-preset-react": "^6.24.1",
     "bootstrap": "4.0.0-beta",
     "cssnano": "^3.10.0",
+    "firebase": "^4.3.0",
+    "font-awesome": "^4.7.0",
+    "font-awesome-webpack": "^0.0.5-beta.2",
+    "font-loader": "^0.1.2",
     "jquery": "^3.2.1",
+    "less": "^2.7.2",
+    "lodash": "^4.17.4",
     "normalize.css": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^3.1.1",
     "popper": "^1.0.0",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-firebase": "^2.2.6"
   }
 }
