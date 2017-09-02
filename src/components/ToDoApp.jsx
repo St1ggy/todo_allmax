@@ -6,9 +6,9 @@ import ToDoList from './ToDoList.jsx';
 export default class ToDoApp extends React.Component {
 	render() {
 		return (
-			<div>
+			<div className="container">
 				<div className="row">
-					<div className="col-12">
+					<div className="col-12 text-center">
 						<ToDoPanel />
 					</div>
 				</div>

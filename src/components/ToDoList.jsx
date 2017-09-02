@@ -10,10 +10,10 @@ export default class ToDoList extends React.Component {
 		return (
 			<div>
 				<div className="row">
-					<div className="col-2"><b>Title</b></div>
+					<div className="col-2 text-center"><b>Title</b></div>
 					<div className="col-4"><b>Description</b></div>
-					<div className="col-2"><b>Goal date</b></div>
-					<div className="col-2"><b>Finished date</b></div>
+					<div className="col-2 text-center"><b>Goal date</b></div>
+					<div className="col-2 text-center"><b>Finished date</b></div>
 				</div>
 				<br/>
 				{_.map(

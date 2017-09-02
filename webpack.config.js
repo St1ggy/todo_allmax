@@ -10,7 +10,7 @@ const pug					= require('./webpack/pug');
 const uglify			= require('./webpack/js.uglify');
 const minify			= require('./webpack/css.minify');
 const react				= require('./webpack/react');
-// const fonts				= require('./webpack/icon.fonts');
+const css				= require('./webpack/css');
 
 const PATHS = {
 	src: path.join(__dirname, 'src'),
@@ -30,17 +30,15 @@ const common = merge([
 			}),
 			new webpack.ProvidePlugin({
 				$: 'jquery',
-				jQuery: 'jquery'
-			}),
-			new webpack.ProvidePlugin({
-					"React": "react",
+				jQuery: 'jquery',
+				"React": "react",
+				Popper: ['popper.js', 'default'],
 			}),
 
 		]
 	},
 	react(),
 	pug(),
-	extractCSS(),
 	// fonts(),
 ]);
 
@@ -49,11 +47,13 @@ module.exports = function (env) {
 	return env == 'production' ?
 		merge([
 			common,
+			extractCSS(),
 			uglify(),
 			minify()
 		]) :
 		merge([
 			common,
+			css(),
 			devServer(),
 		]);
 }

@@ -1,5 +1,5 @@
-/* Include Styles */
-import 'bootstrap/dist/css/bootstrap.min.css';
+/* Include Libs */
+import 'bootstrap';
 import 'normalize.css';
 import './index.styl';
 
@@ -7,7 +7,7 @@ import './index.styl';
 import React from 'react';
 import { render } from 'react-dom';
 import firebase from 'firebase';
-import { connect, Provider } from 'react-firebase';
+import { Provider } from 'react-firebase';
 
 /* Include Components */
 import App from './App.jsx';
@@ -18,10 +18,6 @@ const firebaseApp = firebase.initializeApp({
 });
 
 render(
-	<Provider firebaseApp={firebaseApp}>
-		<div className="container">
-			<App />
-		</div>
-	</Provider>,
+	<App firebaseApp={firebaseApp} />,
 	document.getElementById('app')
 );
