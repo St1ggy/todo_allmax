@@ -1,11 +1,80 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700')
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons')
-@import url('https://bootswatch.com/4-alpha/darkly/bootstrap.min.css')
+@import url('//fonts.googleapis.com/css?family=Comfortaa:300,400,700')
+@import url('//fonts.googleapis.com/icon?family=Material+Icons')
+@import url('//bootswatch.com/4-alpha/darkly/bootstrap.min.css')
 html, body
 	font-family Comfortaa
 body
 	padding-top 50px
+.hidden
+	display none
+.word-breaker
+	word-wrap break-word
+.taj
+	text-align justify
 .btn
 	cursor pointer
 .todo-item
 	margin 10px 0
+.fade.in
+	opacity 1
+	&.modal-backdrop
+		opacity .5
+.modal-dialog
+	top 200px
+	input::placeholder,
+	textarea::placeholder
+		opacity .6
+	textarea
+		resize none
+	span.glyphicon-calendar:before
+		content 'Select date'
+	.bootstrap-datetimepicker-widget
+		right unset !important
+		table
+			width 100%
+			&.table-condensed
+				td:hover
+					opacity 1
+		padding 15px
+		th.prev:before
+			content '<-'
+		th.next:after
+			content '->'
+		td.day.old,
+		td.day.new
+			opacity .5
+		td.day,
+		th:not(.dow)
+			cursor pointer
+			&:hover
+				opacity .6
+		span
+			cursor pointer
+		.glyphicon-
+			&chevron-down:before
+				content '<'
+				transform rotate(-90deg)
+				display block
+			&chevron-up:before
+				content '<'
+				transform rotate(90deg)
+				display block
+			&time:before
+				content 'Switch to time'
+			&calendar:before
+				content 'Switch to calendar'
+				
+		td, th
+			text-align center
+		.month,
+		.year
+			margin-right 20px
+			cursor pointer
+			&.active
+				opacity .6
+		span, .minute, .hour
+			cursor pointer
+.is-completed
+	opacity .3
+.item-create
+	margin-bottom 40px

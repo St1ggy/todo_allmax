@@ -1,4 +1,4 @@
-import ToDoPanel from './ToDoPanel.jsx';
+import ItemCreate from './ItemCreate.jsx';
 import ToDoList from './ToDoList.jsx';
 
 /* Extra code */
@@ -9,12 +9,12 @@ export default class ToDoApp extends React.Component {
 			<div className="container">
 				<div className="row">
 					<div className="col-12 text-center">
-						<ToDoPanel />
+						<ItemCreate firebaseApp={this.props.firebaseApp} />
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-12">
-						<ToDoList items={this.props.todos} />
+						<ToDoList items={this.props.todos} firebaseApp={this.props.firebaseApp} />
 					</div>
 				</div>
 			</div>

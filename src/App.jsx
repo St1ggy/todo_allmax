@@ -6,14 +6,14 @@ export default class App extends React.Component {
 		super(props);
 	}
 	componentWillMount() {
-		const { firebaseApp } = this.props;
-		const itemsRef = firebaseApp.database().ref('items');
+		const itemsRef = this.props.firebaseApp.database().ref('items');
 		itemsRef.on(
 			'value',
 			(snapshot) => {
 				let items = snapshot.val();
 				let newState = [];
 				for(let item in items) {
+					items[item].id = item;
 					newState.push(items[item]);
 				}
 				this.setState({items: newState});
@@ -23,7 +23,7 @@ export default class App extends React.Component {
 	render() {
 		let todos = this.state? this.state.items : null;
 		return (
-			<ToDoApp todos={todos} />
+			<ToDoApp todos={todos} firebaseApp={this.props.firebaseApp} />
 		);
 	}
 };
