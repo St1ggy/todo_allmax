@@ -52,16 +52,17 @@ export default class ToDoList extends React.Component {
 						</div>
 					</ListGroupItem>
 					<div className="items-container">
+					{/*_.sor*/}
 					{_.map(
 						this.props.items,
 						(item, index) => {
-							if((this.state.priority == null || item.priority == this.state.priority) &&!item.isCompleted) return (<ToDoListItem key={index} {...item}/>)
+							if((this.state.priority == null || item.priority == this.state.priority) && !item.isCompleted) return (<ToDoListItem key={index} {...item}/>)
 						}
 					)}
 					{_.map(
 						this.props.items,
 						(item, index) => {
-							if(item.isCompleted) return (<ToDoListItem key={index} {...item}/>)
+							if((this.state.priority == null || item.priority == this.state.priority) && item.isCompleted) return (<ToDoListItem key={index} {...item}/>)
 						}
 					)}
 					</div>

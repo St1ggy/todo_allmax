@@ -13,9 +13,10 @@ export default class ToDoListItem extends React.Component {
 			}
 		};
 		this.now = new Date();
+		this.expired = false;
 		setInterval(() => {
 			this.now = new Date();
-			this.setState({expired: this.props.goalDate && (this.now > new Date(this.props.goalDate))});
+			this.expired = this.props.goalDate && (this.now > new Date(this.props.goalDate));
 		}, 1000);
 	}
 
