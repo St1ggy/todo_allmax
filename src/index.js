@@ -1,6 +1,7 @@
 /* Include Libs */
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import './bootstrap.theme.css';
 import 'normalize.css';
 import './index.styl';
 
