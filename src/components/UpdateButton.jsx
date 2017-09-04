@@ -15,14 +15,19 @@ import {
 import MaskedFormControl from 'react-bootstrap-maskedinput';
 import firebaseApp from '../services/firebase.jsx';
 
-export default class ItemCreate extends React.Component {
+export default class UpdateButton extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = { showModal: false };
+		this.state = {
+			showModal: false,
+			title: props.title,
+			description: props.description,
+			priority: props.priority,
+			goalDate: props.goalDate? new Date(props.goalDate).toLocaleString('ru') : null
+		};
 	}
 
 	close() {
-		this.state = {};
 		this.setState({ showModal: false });
 	}
 
@@ -36,30 +41,26 @@ export default class ItemCreate extends React.Component {
 		});
 	}
 	
-	createTask() {
+	updateTask() {
 		let tmpGoalDate = this.state.goalDate?
 			new Date(this.state.goalDate.replace( /(\d+).(\d+).(\d+), (\d+):(\d+)/, "$2.$1.$3, $4:$5")).toISOString():
 			false;
-		let item = {
+		const itemRef = firebaseApp.database().ref(`/items/${this.props.id}`);
+		itemRef.update({
 			title: this.state.title,
 			description: this.state.description || null,
-			goalDate: tmpGoalDate,
-			priority: this.state.priority || 0
-		}
-		firebaseApp.database().ref('items').push(item);
+			priority: this.state.priority || 0,
+			goalDate: tmpGoalDate
+		});
 		this.close();
 	}
 
 	render() {
 		return (
-			<ListGroupItem
-				className="item-create text-center"
+			<Button
+				bsStyle="info"
 				onClick={this.open.bind(this)}
-				bsStyle="warning"
-			>
-				<i className="material-icons">
-					note_add
-				</i>
+			><i className="material-icons">edit</i>
 				<Modal
 					show={this.state.showModal}
 					onHide={this.close.bind(this)}
@@ -129,7 +130,6 @@ export default class ItemCreate extends React.Component {
 										name="priority"
 										onChange={this.handleChange.bind(this)}
 										value={this.state.priority}
-										defaultValue={0}
 									>
 										<option value={0}>Common</option>
 										<option value={1}>Important</option>
@@ -150,13 +150,13 @@ export default class ItemCreate extends React.Component {
 						<Button
 							type="submit"
 							bsStyle="success"
-							onClick={this.createTask.bind(this)}
+							onClick={this.updateTask.bind(this)}
 						>
-							Create
+							Update
 						</Button>
 					</Modal.Footer>
 				</Modal>
-			</ListGroupItem>
+			</Button>
 		)
 	}
 }

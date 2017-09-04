@@ -1,4 +1,5 @@
 import ToDoApp from './components/ToDoApp.jsx';
+import firebaseApp from './services/firebase.jsx';
 /* Extra code */
 /* Export component */
 export default class App extends React.Component {
@@ -6,7 +7,7 @@ export default class App extends React.Component {
 		super(props);
 	}
 	componentWillMount() {
-		const itemsRef = this.props.firebaseApp.database().ref('items');
+		const itemsRef = firebaseApp.database().ref('items');
 		itemsRef.on(
 			'value',
 			(snapshot) => {
@@ -23,7 +24,7 @@ export default class App extends React.Component {
 	render() {
 		let todos = this.state? this.state.items : null;
 		return (
-			<ToDoApp todos={todos} firebaseApp={this.props.firebaseApp} />
+			<ToDoApp todos={todos} />
 		);
 	}
 };

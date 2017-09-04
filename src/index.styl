@@ -1,10 +1,10 @@
 @import url('//fonts.googleapis.com/css?family=Comfortaa:300,400,700')
 @import url('//fonts.googleapis.com/icon?family=Material+Icons')
-@import url('//bootswatch.com/4-alpha/darkly/bootstrap.min.css')
+@import url('//bootswatch.com/4-alpha/darkly/bootstrap.css')
 html, body
 	font-family Comfortaa
 body
-	padding-top 50px
+	padding 50px 0
 .hidden
 	display none
 .word-breaker
@@ -13,8 +13,6 @@ body
 	text-align justify
 .btn
 	cursor pointer
-.todo-item
-	margin 10px 0
 .fade.in
 	opacity 1
 	&.modal-backdrop
@@ -26,55 +24,38 @@ body
 		opacity .6
 	textarea
 		resize none
-	span.glyphicon-calendar:before
-		content 'Select date'
-	.bootstrap-datetimepicker-widget
-		right unset !important
-		table
-			width 100%
-			&.table-condensed
-				td:hover
-					opacity 1
-		padding 15px
-		th.prev:before
-			content '<-'
-		th.next:after
-			content '->'
-		td.day.old,
-		td.day.new
-			opacity .5
-		td.day,
-		th:not(.dow)
-			cursor pointer
-			&:hover
-				opacity .6
-		span
-			cursor pointer
-		.glyphicon-
-			&chevron-down:before
-				content '<'
-				transform rotate(-90deg)
-				display block
-			&chevron-up:before
-				content '<'
-				transform rotate(90deg)
-				display block
-			&time:before
-				content 'Switch to time'
-			&calendar:before
-				content 'Switch to calendar'
-				
-		td, th
-			text-align center
-		.month,
-		.year
-			margin-right 20px
-			cursor pointer
-			&.active
-				opacity .6
-		span, .minute, .hour
-			cursor pointer
 .is-completed
-	opacity .3
-.item-create
-	margin-bottom 40px
+	opacity .2
+.btn-group
+	.btn
+		border-top 1px solid rgba(0,0,0,.2)
+		border-bottom 1px solid rgba(0,0,0,.2)
+		&:last-child
+				border-right 1px solid rgba(0,0,0,.2)
+		&:first-child
+				border-left 1px solid rgba(0,0,0,.2)
+.list-group-item-primary
+.btn.btn-primary
+	background #373a3c
+.items-container
+	max-height 740px
+	overflow auto
+	.todo-item
+		color white !important
+		border-top-right-radius 0 !important
+		border-top-left-radius 0 !important
+		.extra-delete
+			position absolute
+			right 0
+			top 0
+			opacity 0
+			transition opacity .2s ease
+			cursor pointer
+		&:hover .extra-delete
+			opacity 1
+	
+.item-create 
+	transition background-color .2s ease
+	cursor pointer
+	.material-icons
+		margin 0 auto
