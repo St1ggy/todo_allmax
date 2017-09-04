@@ -10,14 +10,22 @@ export default class ToDoListItem extends React.Component {
 				0: null,
 				1: 'success',
 				2: 'warning'
-			}
+			},
+			now: new Date(),
+			expired: false
 		};
-		this.now = new Date();
-		this.expired = false;
-		setInterval(() => {
-			this.now = new Date();
-			this.expired = this.props.goalDate && (this.now > new Date(this.props.goalDate));
-		}, 1000);
+		this.goalDate = this.props.goalDate;
+		this.updateTime();
+		setInterval(this.updateTime.bind(this), 1000);
+	}
+	/** Понимаю, что немного неправильно, валятся ворнинги в консоль,
+		* но другого нормального решения для того, что мне нужно, не нашел
+		*/
+	updateTime() {
+		this.setState({
+			now: new Date(),
+			expired: this.props.goalDate && (this.state.now > new Date(this.props.goalDate))
+		});
 	}
 
 	delete(itemId) {
